@@ -372,6 +372,8 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
         </span><span class="s2">"Signed"</span><span class="p">:</span><span class="kc">true</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"ReturnURL"</span><span class="p">:</span><span class="s2">"https://www.yourcompany.se/finishedsigning"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SigningOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"ID"</span><span class="p">:</span><span class="mi">26</span><span class="p">,</span><span class="s2">"CreatedAt"</span><span class="p">:</span><span class="s2">"2017-06-28T19:16:08.023052Z"</span><span class="p">,</span><span class="w">
@@ -390,7 +392,8 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
         </span><span class="s2">"Signed"</span><span class="p">:</span><span class="kc">false</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"ReturnURL"</span><span class="p">:</span><span class="s2">"https://www.yourcompany.se/finishedsigning"</span><span class="w">
+    </span><span class="s2">"ReturnURL"</span><span class="p">:</span><span class="s2">"https://www.yourcompany.se/finishedsigning"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SigningOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -421,6 +424,8 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
       </span><span class="s2">"Signed"</span><span class="p">:</span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"ReturnURL"</span><span class="p">:</span><span class="s2">"https://www.yourcompany.se/finishedsigning"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SigningOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific document.</p>
@@ -445,6 +450,7 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
   -F <span class="s2">"signers=[{'Ssn':'190102030401'}]"</span>
   -F <span class="s2">"permissions=yourCompany"</span>
   -F <span class="s2">"document=@/path/document_to_sign.pdf"</span>
+  -F <span class="s2">"signingOrder=false"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -464,8 +470,10 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
         </span><span class="s2">"Signed"</span><span class="p">:</span><span class="kc">false</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"ReturnURL"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SigningOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"SigningURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://signport.com/api/documentservice/v1/sign/25"</span><span class="w">
-
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint handles uploads of new documents to sign</p>
@@ -498,6 +506,11 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 <td>document</td>
 <td></td>
 <td>The document to be signed</td>
+</tr>
+<tr>
+<td>signingOrder</td>
+<td>false</td>
+<td>A true or false vaule. If set to true, users will be able to sign in the order of signers. Mail will be sent to the signer who&#39;s next in turn if sendEmail is true.</td>
 </tr>
 <tr>
 <td>returnurl?</td>
