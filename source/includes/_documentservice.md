@@ -30,6 +30,8 @@ curl "http://signport.com/api/documentservice/v1/documents"
         "Signed":true
       }
     ],
+    "ReturnURL":"https://www.yourcompany.se/finishedsigning",
+    "SigningOrder": false
   },
   {
     "ID":26,"CreatedAt":"2017-06-28T19:16:08.023052Z",
@@ -48,7 +50,8 @@ curl "http://signport.com/api/documentservice/v1/documents"
         "Signed":false
       }
     ],
-    "ReturnURL":"https://www.yourcompany.se/finishedsigning"
+    "ReturnURL":"https://www.yourcompany.se/finishedsigning",
+    "SigningOrder": false
   },
   ...
 ]
@@ -88,6 +91,8 @@ curl "http://signport.com/api/documentservice/v1/documents/25"
       "Signed":true
     }
   ],
+    "ReturnURL":"https://www.yourcompany.se/finishedsigning",
+    "SigningOrder": false
 }
 ```
 
@@ -113,6 +118,7 @@ curl "http://signport.com/api/documentservice/v1/documents/25"
   -F "signers=[{'Ssn':'190102030401'}]"
   -F "permissions=yourCompany"
   -F "document=@/path/document_to_sign.pdf"
+  -F "signingOrder=false"
 ```
 
 > The above command returns JSON structured like this:
@@ -133,8 +139,10 @@ curl "http://signport.com/api/documentservice/v1/documents/25"
         "Signed":false
       }
     ],
+    "ReturnURL":"",
+    "SigningOrder": false
+  },
   "SigningURL": "http://signport.com/api/documentservice/v1/sign/25"
-
 }
 ```
 
@@ -152,6 +160,7 @@ authorSsn || Ssn of author, if not set the author will be owner of <ACCESS_TOKEN
 signers || JSON array of signers, A signer could include: Firstname, Lastname, Email, Phone, Ssn
 permissons | The group of your token | The group with access to read document
 document || The document to be signed
+signingOrder| false | A true or false vaule. If set to true, users will be able to sign in the order of signers. Mail will be sent to the signer who's next in turn if sendEmail is true.
 returnurl? | empty | If you want the user to be sent to a specific URL after signing, this is where you'd put it
 sendEmail? | false | A true or false value. If set to true, the user will be sent an email invitation to sign the document. (Requires email set in signer)
 
