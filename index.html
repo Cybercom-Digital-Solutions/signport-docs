@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,9 +212,6 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -226,18 +223,56 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Kittens">Get All Kittens</a>
+                    <a href="#client-credentials-flow" class="toc-h2 toc-link" data-title="Authentication">Client Credentials Flow</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Kittens">Get a Specific Kitten</a>
+                    <a href="#example-api-call" class="toc-h2 toc-link" data-title="Authentication">Example api-call</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#documents" class="toc-h1 toc-link" data-title="Documents">Documents</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-documents" class="toc-h2 toc-link" data-title="Documents">Get all documents</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Kittens">Delete a Specific Kitten</a>
+                    <a href="#get-a-specific-document" class="toc-h2 toc-link" data-title="Documents">Get a specific document</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-new-document" class="toc-h2 toc-link" data-title="Documents">Create a new document</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-specific-document" class="toc-h2 toc-link" data-title="Documents">Update a specific document</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#signers" class="toc-h1 toc-link" data-title="Signers">Signers</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-signers" class="toc-h2 toc-link" data-title="Signers">Get all signers</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-specific-signer" class="toc-h2 toc-link" data-title="Signers">Update a specific signer</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#signing" class="toc-h1 toc-link" data-title="Signing">Signing</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#initiate-signing" class="toc-h2 toc-link" data-title="Signing">Initiate signing</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#files" class="toc-h1 toc-link" data-title="Files">Files</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-a-specific-file" class="toc-h2 toc-link" data-title="Files">Get a specific file</a>
                   </li>
               </ul>
           </li>
@@ -246,88 +281,197 @@
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='http://www.cybercom.com/sv/vad-vi-gor/secure-connectivity/identity--access-management/iam-assets/identityhub/'>Who are we?</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Signport API! You can use our API to sign pdf and xml documents.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<p>You can view code examples in the dark area to the right.</p>
 <h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<p>To query the api you&#39;ll have to authenticate yourself.
+This is done by OAuth 2 and for a stand-alone application we would suggest using Client Credentials as grant type.</p>
+<h2 id='client-credentials-flow'>Client Credentials Flow</h2>
+<p><code>GET https://signport.se/api/oauthservice/token?grant_type=client_credentials&amp;client_id=&lt;CLIENT_ID&gt;&amp;client_secret=&lt;CLIENT_SECRET&gt;</code></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://signport.se/api/oauthservice/token?grant_type=client_credentials&amp;client_id=&lt;CLIENT_ID&gt;&amp;client_secret=&lt;CLIENT_SECRET&gt;"</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ACCESS_TOKEN&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;REFRESH_TOKEN&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='url-parameters'>Url Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CLIENT_ID</td>
+<td>The ID identifying your application</td>
+</tr>
+<tr>
+<td>CLIENT_SECRET</td>
+<td>The secret received from us for your application</td>
+</tr>
+</tbody></table>
+
+<p>Save the access_token and refresh_token for use with all your requests against the api.</p>
+
+<aside class="success">
+Remember — All requests against the backend needs to be authenticated!
+</aside>
+<h2 id='example-api-call'>Example api-call</h2><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"api_endpoint_here"</span>
+  -H <span class="s2">"Authorization: &lt;ACCESS_TOKEN_HERE&gt;"</span>
+</code></pre>
+<blockquote>
+<p>Make sure to replace <code>ACCESS_TOKEN_HERE</code> with your API key.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Signport uses API keys to allow access to the API. You can get your key by following the authentication flow above.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>Signport expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<p><code>Authorization: ACCESS_TOKEN_HERE</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<h1 id='documents'>Documents</h1>
+<p>All creation and management of documents can be done using the following endpoints</p>
+<h2 id='get-all-documents'>Get all documents</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://signport.com/api/documentservice/v1/documents"</span>
+  -H <span class="s2">"Authorization: &lt;ACCESS_TOKEN&gt;"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+    </span><span class="s2">"ID"</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreatedAt"</span><span class="p">:</span><span class="s2">"2017-06-28T19:08:22.098555Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"UpdatedAt"</span><span class="p">:</span><span class="s2">"2017-06-28T19:08:22.098555Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Author"</span><span class="p">:</span><span class="s2">"190102030400"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Permissions"</span><span class="p">:</span><span class="s2">"YourCompany"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DocumentURL"</span><span class="p">:</span><span class="s2">"/documentstorage/2017-06-28T19:08:22.006555464Z-document_to_sign.pdf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Signers"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ID"</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="s2">"Lisa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"LastName"</span><span class="p">:</span><span class="s2">"Svensson"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Email"</span><span class="p">:</span><span class="s2">"lisa@test.se"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Ssn"</span><span class="p">:</span><span class="s2">"190102030401"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Signed"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"ID"</span><span class="p">:</span><span class="mi">26</span><span class="p">,</span><span class="s2">"CreatedAt"</span><span class="p">:</span><span class="s2">"2017-06-28T19:16:08.023052Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"UpdatedAt"</span><span class="p">:</span><span class="s2">"2017-06-28T19:16:08.023052Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeletedAt"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Author"</span><span class="p">:</span><span class="s2">"190102030400"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Permissions"</span><span class="p">:</span><span class="s2">"YourCompany"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DocumentURL"</span><span class="p">:</span><span class="s2">"/documentstorage/2017-06-28T19:16:07.95853269Z-another_document_to_sign"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Signers"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ID"</span><span class="p">:</span><span class="mi">26</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="s2">"Sven"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"LastName"</span><span class="p">:</span><span class="s2">"Svensson"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Email"</span><span class="p">:</span><span class="s2">"sven@test.se"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Ssn"</span><span class="p">:</span><span class="s2">"190102030402"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Signed"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"ReturnURL"</span><span class="p">:</span><span class="s2">"https://www.yourcompany.se/finishedsigning"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<p>This endpoint retrieves all documents.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p><code>GET http://signport.com/api/documentservice/v1/documents</code></p>
+<h2 id='get-a-specific-document'>Get a specific document</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://signport.com/api/documentservice/v1/documents/25"</span>
+  -H <span class="s2">"Authorization: &lt;ACCESS_TOKEN&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"ID"</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"CreatedAt"</span><span class="p">:</span><span class="s2">"2017-06-28T19:08:22.098555Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"UpdatedAt"</span><span class="p">:</span><span class="s2">"2017-06-28T19:08:22.098555Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Author"</span><span class="p">:</span><span class="s2">"190102030400"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Permissions"</span><span class="p">:</span><span class="s2">"YourCompany"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"DocumentURL"</span><span class="p">:</span><span class="s2">"/documentstorage/2017-06-28T19:08:22.006555464Z-document_to_sign.pdf"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Signers"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"ID"</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="s2">"Lisa"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"LastName"</span><span class="p">:</span><span class="s2">"Svensson"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Email"</span><span class="p">:</span><span class="s2">"lisa@test.se"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Ssn"</span><span class="p">:</span><span class="s2">"190102030401"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Signed"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific document.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://signport.com/api/documentservice/v1/documents/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>Url Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the document to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-new-document'>Create a new document</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://signport.com/api/documentservice/v1/documents/25"</span>
+  -X POST
+  -H <span class="s2">"Authorization: &lt;ACCESS_TOKEN&gt;"</span>
+  -F <span class="s2">"authorSsn=190102030400"</span>
+  -F <span class="s2">"signers=[{'Ssn':'190102030401'}]"</span>
+  -F <span class="s2">"permissions=yourCompany"</span>
+  -F <span class="s2">"document=@/path/document_to_sign.pdf"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Document"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ID"</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreatedAt"</span><span class="p">:</span><span class="s2">"2017-06-28T19:08:22.098555Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"UpdatedAt"</span><span class="p">:</span><span class="s2">"2017-06-28T19:08:22.098555Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Author"</span><span class="p">:</span><span class="s2">"190102030400"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Permissions"</span><span class="p">:</span><span class="s2">"yourCompany"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DocumentURL"</span><span class="p">:</span><span class="s2">"/documentstorage/2017-06-28T19:08:22.006555464Z-document_to_sign.pdf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Signers"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ID"</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Ssn"</span><span class="p">:</span><span class="s2">"190102030401"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Signed"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"SigningURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://signport.com/api/documentservice/v1/sign/25"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint handles uploads of new documents to sign</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST http://signport.com/api/documentservice/v1/documents</code></p>
+<h3 id='form-parameters'>Form Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -336,52 +480,41 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
+<td>authorSsn</td>
+<td></td>
+<td>Ssn of author, if not set the author will be owner of <ACCESS_TOKEN></td>
+</tr>
+<tr>
+<td>signers</td>
+<td></td>
+<td>JSON array of signers, A signer could include: Firstname, Lastname, Email, Phone, Ssn</td>
+</tr>
+<tr>
+<td>permissons</td>
+<td>The group of your token</td>
+<td>The group with access to read document</td>
+</tr>
+<tr>
+<td>document</td>
+<td></td>
+<td>The document to be signed</td>
+</tr>
+<tr>
+<td>returnurl?</td>
+<td>empty</td>
+<td>If you want the user to be sent to a specific URL after signing, this is where you&#39;d put it</td>
+</tr>
+<tr>
+<td>sendEmail?</td>
 <td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>A true or false value. If set to true, the user will be sent an email invitation to sign the document. (Requires email set in signer)</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h2 id='update-a-specific-document'>Update a specific document</h2>
+<p>This endpoint handles updates of a specific document</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT http://signport.com/api/documentservice/v1/documents/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-2'>Url Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -390,37 +523,68 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>Which document to update</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h3 id='form-parameters-2'>Form Parameters</h3>
+<p>Same parameters as the request to create a new document but with an ID parameter specifying which document to update.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>...</td>
+<td>Form parameters in POST request above</td>
+</tr>
+</tbody></table>
+<h1 id='signers'>Signers</h1>
+<p>The signers endpoint handles retrieving and updating of signers for documents</p>
+<h2 id='get-all-signers'>Get all signers</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://signport.com/api/documentservice/v1/signers"</span>
+  -X POST
+  -H <span class="s2">"Authorization: &lt;ACCESS_TOKEN&gt;"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CreatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-09T11:23:12.813551Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"UpdatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-09T11:23:12.813551Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DocumentID"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sven"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Svensson"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sven@test.se"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Ssn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"190102030400"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Signed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CreatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-09T11:23:12.813551Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"UpdatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-08-09T11:23:12.813551Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DocumentID"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lena"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Svensson"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lena@test.se"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Ssn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"199212140538"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Signed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<p>This endpoint retrieves all signers</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET http://signport.com/api/documentservice/v1/signers</code></p>
+<h2 id='update-a-specific-signer'>Update a specific signer</h2>
+<p>This endpoint can update an already existing signer, e.g. to add new information</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>PUT http://signport.com/api/documentservice/v1/signers/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-3'>Url Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -429,11 +593,85 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>The ID of the signer to update</td>
+</tr>
+</tbody></table>
+<h3 id='url-parameters-4'>Url Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Firstname</td>
+<td>The firstname of signer</td>
+</tr>
+<tr>
+<td>Lastname</td>
+<td>The lastname of signer</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>The email of signer</td>
+</tr>
+<tr>
+<td>Phone</td>
+<td>The phone of signer</td>
+</tr>
+</tbody></table>
+<h1 id='signing'>Signing</h1>
+<p>The following endpoints is used for signing</p>
+<h2 id='initiate-signing'>Initiate signing</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://signport.com/api/documentservice/v1/signrequest/&lt;ID&gt;"</span>
+  -X POST
+  -H <span class="s2">"Authorization: &lt;ACCESS_TOKEN&gt;"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Binding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST/XML/1.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"RelayState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"928ae68c-e37f-4737-879b-2d95661201a0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"EidSignRequest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PFNpZ25SZXF1ZXN0IHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEi....."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SigningServiceURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://eid.identityhub.se/demo/ut/sign/BeginSigning"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a signing-request that should be sent to our IDP.</p>
+
+<p>If <code>&quot;Success&quot;: true</code> you are free to submit Binding, RelayState and EidSignRequest as a form to the <code>SigningServiceUrl</code>.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST http://signport.com/api/documentservice/v1/signrequest/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-5'>Url Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the document to sign</td>
+</tr>
+</tbody></table>
+<h1 id='files'>Files</h1><h2 id='get-a-specific-file'>Get a specific file</h2>
+<p>To get the raw unsigned/signed file use this endpoint</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>PUT http://signport.com/api/documentservice/v1/file/&lt;FILEPATH&gt;</code></p>
+<h3 id='url-parameters-6'>Url Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>FILEPATH</td>
+<td>The filepath that points to the requested document. Received when creating document and from /documents endpoint</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+<aside class="notice">The meaning of error code may differ a bit between different services</aside>
 
 <p>The Kittn API uses the following error codes:</p>
 
@@ -445,43 +683,39 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request sucks</td>
+<td>Bad Request -- Something is wrong with your request.</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong</td>
+<td>Unauthorized -- Something is wrong with your API key.</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only</td>
+<td>Forbidden -- You don&#39;t have access to this endpoint.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found</td>
+<td>Not Found -- The specified document/signer could not be found.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method</td>
+<td>Method Not Allowed -- You tried to access the endpoint with an invalid method.</td>
 </tr>
 <tr>
 <td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
 </tr>
 <tr>
 <td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers</td>
+<td>Gone -- The requested resource has been removed from the server.</td>
 </tr>
 <tr>
 <td>418</td>
-<td>I&#39;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>I&#39;m a teapot.</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>Internal Server Error -- We have a problem with our server. Try again later.</td>
 </tr>
 <tr>
 <td>503</td>
@@ -493,9 +727,6 @@ Remember — a happy kitten is an authenticated kitten!
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
