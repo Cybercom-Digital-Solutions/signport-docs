@@ -474,7 +474,8 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"ReturnURL"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SigningOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="s2">"SigningOrder"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">""</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"SigningURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://signport.com/api/documentservice/v1/sign/25"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -524,6 +525,11 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 <td>sendEmail?</td>
 <td>false</td>
 <td>A true or false value. If set to true, the user will be sent an email invitation to sign the document. (Requires email set in signer)</td>
+</tr>
+<tr>
+<td>state?</td>
+<td>empty</td>
+<td>The state parameter is used to preserve some state object from the requesting service</td>
 </tr>
 </tbody></table>
 <h2 id='update-a-specific-document'>Update a specific document</h2>
