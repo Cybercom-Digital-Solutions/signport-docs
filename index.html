@@ -247,6 +247,9 @@
                   <li>
                     <a href="#update-a-specific-document" class="toc-h2 toc-link" data-title="Documents">Update a specific document</a>
                   </li>
+                  <li>
+                    <a href="#delete-a-specific-document" class="toc-h2 toc-link" data-title="Documents">Delete a specific document</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -553,6 +556,39 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 <td>Form parameters in POST request above</td>
 </tr>
 </tbody></table>
+<h2 id='delete-a-specific-document'>Delete a specific document</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://signport.com/api/documentservice/v1/documents/25"</span>
+  -X DELETE
+  -H <span class="s2">"Authorization: &lt;ACCESS_TOKEN&gt;"</span>
+</code></pre>
+<p>This endpoint handles the deletion of a specific document</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE http://signport.com/api/documentservice/v1/documents/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-3'>Url Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Which document to delete</td>
+</tr>
+</tbody></table>
+<h3 id='form-parameters-3'>Form Parameters</h3>
+<p>Same parameters as the request to create a new document but with an ID parameter specifying which document to delete.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>...</td>
+<td>Form parameters in POST request above</td>
+</tr>
+</tbody></table>
 <h1 id='signers'>Signers</h1>
 <p>The signers endpoint handles retrieving and updating of signers for documents</p>
 <h2 id='get-all-signers'>Get all signers</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://signport.com/api/documentservice/v1/signers"</span>
@@ -591,13 +627,13 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all signers</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET http://signport.com/api/documentservice/v1/signers</code></p>
 <h2 id='update-a-specific-signer'>Update a specific signer</h2>
 <p>This endpoint can update an already existing signer, e.g. to add new information</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>PUT http://signport.com/api/documentservice/v1/signers/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-3'>Url Parameters</h3>
+<h3 id='url-parameters-4'>Url Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -609,7 +645,7 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 <td>The ID of the signer to update</td>
 </tr>
 </tbody></table>
-<h3 id='url-parameters-4'>Url Parameters</h3>
+<h3 id='url-parameters-5'>Url Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -653,9 +689,9 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 <p>This endpoint creates a signing-request that should be sent to our IDP.</p>
 
 <p>If <code>&quot;Success&quot;: true</code> you are free to submit Binding, RelayState and EidSignRequest as a form to the <code>SigningServiceUrl</code>.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>POST http://signport.com/api/documentservice/v1/signrequest/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-5'>Url Parameters</h3>
+<h3 id='url-parameters-6'>Url Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -669,9 +705,9 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 </tbody></table>
 <h1 id='files'>Files</h1><h2 id='get-a-specific-file'>Get a specific file</h2>
 <p>To get the raw unsigned/signed file use this endpoint</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>PUT http://signport.com/api/documentservice/v1/file/&lt;FILEPATH&gt;</code></p>
-<h3 id='url-parameters-6'>Url Parameters</h3>
+<h3 id='url-parameters-7'>Url Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
