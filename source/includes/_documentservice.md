@@ -186,6 +186,34 @@ Parameter | Description
 --------- | -----------
 ...| Form parameters in POST request above
 
+## Delete a specific document
+
+```shell
+curl "http://signport.com/api/documentservice/v1/documents/25"
+  -X DELETE
+  -H "Authorization: <ACCESS_TOKEN>"
+```
+
+This endpoint handles the deletion of a specific document
+
+### HTTP Request
+
+`DELETE http://signport.com/api/documentservice/v1/documents/<ID>`
+
+### Url Parameters
+
+Parameter | Description
+--------- | -----------
+ID | Which document to delete
+
+### Form Parameters
+
+Same parameters as the request to create a new document but with an ID parameter specifying which document to delete.
+
+Parameter | Description
+--------- | -----------
+...| Form parameters in POST request above
+
 # Signers
 
 The signers endpoint handles retrieving and updating of signers for documents
