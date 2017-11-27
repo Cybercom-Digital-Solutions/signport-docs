@@ -180,7 +180,7 @@ ID | Which document to update
 
 ### Form Parameters
 
-Same parameters as the request to create a new document but with an ID parameter specifying which document to update.
+Same parameters as the request to create a new document.
 
 Parameter | Description
 --------- | -----------
@@ -205,14 +205,6 @@ This endpoint handles the deletion of a specific document
 Parameter | Description
 --------- | -----------
 ID | Which document to delete
-
-### Form Parameters
-
-Same parameters as the request to create a new document but with an ID parameter specifying which document to delete.
-
-Parameter | Description
---------- | -----------
-...| Form parameters in POST request above
 
 # Signers
 
