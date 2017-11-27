@@ -140,7 +140,8 @@ curl "http://signport.com/api/documentservice/v1/documents/25"
       }
     ],
     "ReturnURL":"",
-    "SigningOrder": false
+    "SigningOrder": false,
+    "State":""
   },
   "SigningURL": "http://signport.com/api/documentservice/v1/sign/25"
 }
@@ -163,6 +164,7 @@ document || The document to be signed
 signingOrder| false | A true or false vaule. If set to true, users will be able to sign in the order of signers. Mail will be sent to the signer who's next in turn if sendEmail is true.
 returnurl? | empty | If you want the user to be sent to a specific URL after signing, this is where you'd put it
 sendEmail? | false | A true or false value. If set to true, the user will be sent an email invitation to sign the document. (Requires email set in signer)
+state? | empty | The state parameter is used to preserve some state object from the requesting service
 
 ## Update a specific document
 
