@@ -250,6 +250,9 @@
                   <li>
                     <a href="#delete-a-specific-document" class="toc-h2 toc-link" data-title="Documents">Delete a specific document</a>
                   </li>
+                  <li>
+                    <a href="#send-a-reminder" class="toc-h2 toc-link" data-title="Documents">Send a reminder</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -517,7 +520,7 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 <td>A true or false vaule. If set to true, users will be able to sign in the order of signers. Mail will be sent to the signer who&#39;s next in turn if sendEmail is true.</td>
 </tr>
 <tr>
-<td>returnurl?</td>
+<td>returnUrl?</td>
 <td>empty</td>
 <td>If you want the user to be sent to a specific URL after signing, this is where you&#39;d put it</td>
 </tr>
@@ -530,6 +533,11 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 <td>state?</td>
 <td>empty</td>
 <td>The state parameter is used to preserve some state object from the requesting service</td>
+</tr>
+<tr>
+<td>signMessage?</td>
+<td>Jag skriver härmed under dokumentet från föregående sida.</td>
+<td>Sets a specific signmessage shown to user during signing</td>
 </tr>
 </tbody></table>
 <h2 id='update-a-specific-document'>Update a specific document</h2>
@@ -581,6 +589,22 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 <td>Which document to delete</td>
 </tr>
 </tbody></table>
+<h2 id='send-a-reminder'>Send a reminder</h2>
+<p>This endpoint allows you to manually send a reminder to the signers of a document</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET http://signport.com/api/documentservice/v1/documents/&lt;ID&gt;/sendreminder</code></p>
+<h3 id='url-parameters-4'>Url Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The document of which the signers should be reminded about</td>
+</tr>
+</tbody></table>
 <h1 id='signers'>Signers</h1>
 <p>The signers endpoint handles retrieving and updating of signers for documents</p>
 <h2 id='get-all-signers'>Get all signers</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://signport.com/api/documentservice/v1/signers"</span>
@@ -619,13 +643,13 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all signers</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET http://signport.com/api/documentservice/v1/signers</code></p>
 <h2 id='update-a-specific-signer'>Update a specific signer</h2>
 <p>This endpoint can update an already existing signer, e.g. to add new information</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>PUT http://signport.com/api/documentservice/v1/signers/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-4'>Url Parameters</h3>
+<h3 id='url-parameters-5'>Url Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -637,7 +661,7 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 <td>The ID of the signer to update</td>
 </tr>
 </tbody></table>
-<h3 id='url-parameters-5'>Url Parameters</h3>
+<h3 id='url-parameters-6'>Url Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -681,9 +705,9 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 <p>This endpoint creates a signing-request that should be sent to our IDP.</p>
 
 <p>If <code>&quot;Success&quot;: true</code> you are free to submit Binding, RelayState and EidSignRequest as a form to the <code>SigningServiceUrl</code>.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST http://signport.com/api/documentservice/v1/signrequest/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-6'>Url Parameters</h3>
+<h3 id='url-parameters-7'>Url Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -697,9 +721,9 @@ You must replace <code>ACCESS_TOKEN_HERE</code> with your personal API key.
 </tbody></table>
 <h1 id='files'>Files</h1><h2 id='get-a-specific-file'>Get a specific file</h2>
 <p>To get the raw unsigned/signed file use this endpoint</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>PUT http://signport.com/api/documentservice/v1/file/&lt;FILEPATH&gt;</code></p>
-<h3 id='url-parameters-7'>Url Parameters</h3>
+<h3 id='url-parameters-8'>Url Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
