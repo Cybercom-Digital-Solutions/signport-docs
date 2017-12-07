@@ -162,9 +162,10 @@ signers || JSON array of signers, A signer could include: Firstname, Lastname, E
 permissons | The group of your token | The group with access to read document
 document || The document to be signed
 signingOrder| false | A true or false vaule. If set to true, users will be able to sign in the order of signers. Mail will be sent to the signer who's next in turn if sendEmail is true.
-returnurl? | empty | If you want the user to be sent to a specific URL after signing, this is where you'd put it
+returnUrl? | empty | If you want the user to be sent to a specific URL after signing, this is where you'd put it
 sendEmail? | false | A true or false value. If set to true, the user will be sent an email invitation to sign the document. (Requires email set in signer)
 state? | empty | The state parameter is used to preserve some state object from the requesting service
+signMessage? | Jag skriver härmed under dokumentet från föregående sida. | Sets a specific signmessage shown to user during signing
 
 ## Update a specific document
 
@@ -207,6 +208,20 @@ This endpoint handles the deletion of a specific document
 Parameter | Description
 --------- | -----------
 ID | Which document to delete
+
+## Send a reminder
+
+This endpoint allows you to manually send a reminder to the signers of a document
+
+### HTTP Request
+
+`GET http://signport.com/api/documentservice/v1/documents/<ID>/sendreminder`
+
+### Url Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The document of which the signers should be reminded about
 
 # Signers
 
